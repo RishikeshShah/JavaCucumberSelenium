@@ -1,0 +1,81 @@
+
+11:48:27.037 [main] INFO  - Chrome browser launched successfully
+11:48:28.836 [main] INFO  - *********** opening url ************
+11:48:28.844 [main] INFO  - *********** providing email and password ************
+11:48:29.984 [main] INFO  - *********** Clicking on login button ************
+11:48:47.169 [main] INFO  - *********** entering new customer info ************
+11:48:56.485 [main] INFO  - *********** Saving customer data ************
+11:48:59.836 [main] INFO  - *********** Closing Browser ************
+11:49:09.199 [main] INFO  - Chrome browser launched successfully
+11:49:10.833 [main] INFO  - *********** opening url ************
+11:49:10.837 [main] INFO  - *********** providing email and password ************
+11:49:11.946 [main] INFO  - *********** Clicking on login button ************
+11:49:19.295 [main] INFO  - *********** Login Successful ************
+11:49:19.298 [main] INFO  - *********** Click logout ************
+11:49:26.837 [main] INFO  - *********** Login Successful ************
+11:49:26.837 [main] INFO  - *********** Closing Browser ************
+11:55:02.956 [main] INFO  - Edge browser launched successfully
+11:55:04.644 [main] INFO  - *********** opening url ************
+11:55:04.648 [main] INFO  - *********** providing email and password ************
+11:55:06.403 [main] INFO  - *********** Clicking on login button ************
+11:55:20.217 [main] INFO  - *********** entering new customer info ************
+11:55:29.193 [main] INFO  - *********** Saving customer data ************
+11:55:31.403 [main] INFO  - *********** Closing Browser ************
+11:55:42.267 [main] INFO  - Edge browser launched successfully
+11:55:44.250 [main] INFO  - *********** opening url ************
+11:55:44.254 [main] INFO  - *********** providing email and password ************
+11:55:45.509 [main] INFO  - *********** Clicking on login button ************
+11:55:53.886 [main] INFO  - *********** Login Successful ************
+11:55:53.891 [main] INFO  - *********** Click logout ************
+11:56:01.647 [main] INFO  - *********** Login Successful ************
+11:56:01.650 [main] INFO  - *********** Closing Browser ************
+12:24:11.709 [main] INFO  - Edge browser launched successfully
+12:24:13.107 [main] INFO  - *********** opening url ************
+12:24:13.111 [main] INFO  - *********** providing email and password ************
+12:24:13.837 [main] INFO  - *********** Clicking on login button ************
+12:24:22.405 [main] INFO  - *********** entering new customer info ************
+12:24:29.639 [main] INFO  - *********** Saving customer data ************
+12:24:30.605 [main] INFO  - *********** Closing Browser ************
+12:24:33.845 [main] INFO  - Edge browser launched successfully
+12:24:35.380 [main] INFO  - *********** opening url ************
+12:24:35.380 [main] INFO  - *********** providing email and password ************
+12:24:35.900 [main] INFO  - *********** Clicking on login button ************
+12:24:42.250 [main] INFO  - *********** Login Successful ************
+12:24:42.256 [main] INFO  - *********** Click logout ************
+12:24:49.347 [main] INFO  - *********** Login Successful ************
+12:24:49.347 [main] INFO  - *********** Closing Browser ************
+08:19:36.422 [main] INFO  - Edge browser launched successfully
+08:19:36.455 [main] INFO  - *********** opening url ************
+08:19:37.928 [main] INFO  - *********** providing email and password ************
+08:19:38.432 [main] INFO  - *********** Clicking on login button ************
+08:19:52.708 [main] INFO  - *********** entering new customer info ************
+08:19:59.931 [main] INFO  - *********** Saving customer data ************
+08:20:00.896 [main] INFO  - *********** Closing Browser ************
+08:20:03.731 [main] INFO  - Edge browser launched successfully
+08:20:03.733 [main] INFO  - *********** opening url ************
+08:20:04.876 [main] INFO  - *********** providing email and password ************
+08:20:05.129 [main] INFO  - *********** Clicking on login button ************
+08:20:11.886 [main] INFO  - *********** Login Successful ************
+08:20:11.893 [main] INFO  - *********** Click logout ************
+08:20:18.923 [main] INFO  - *********** Login Successful ************
+08:20:18.934 [main] INFO  - *********** Closing Browser ************
+12:46:03.490 [main] INFO  - Chrome browser launched successfully
+12:46:03.534 [main] INFO  - *********** opening url ************
+12:46:05.017 [main] INFO  - *********** providing email and password ************
+12:46:05.474 [main] INFO  - *********** Clicking on login button ************
+12:46:14.008 [main] INFO  - *********** entering new customer info ************
+12:46:20.996 [main] INFO  - *********** Saving customer data ************
+12:46:22.547 [main] INFO  - *********** Closing Browser ************
+12:46:23.764 [main] INFO  - Chrome browser launched successfully
+12:46:23.765 [main] INFO  - *********** opening url ************
+12:46:24.782 [main] INFO  - *********** providing email and password ************
+12:46:25.016 [main] INFO  - *********** Clicking on login button ************
+12:46:32.691 [main] INFO  - *********** Searching Customer by Email ************
+12:46:34.649 [main] INFO  - Chrome browser launched successfully
+12:46:34.652 [main] INFO  - *********** opening url ************
+12:46:35.386 [main] INFO  - *********** providing email and password ************
+12:46:35.772 [main] INFO  - *********** Clicking on login button ************
+12:46:41.345 [main] INFO  - *********** Login Successful ************
+12:46:41.354 [main] INFO  - *********** Click logout ************
+12:46:48.447 [main] INFO  - *********** Login Successful ************
+12:46:48.452 [main] INFO  - *********** Closing Browser ************
