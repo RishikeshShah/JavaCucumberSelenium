@@ -286,3 +286,11 @@
 11:18:03.237 [main] INFO  - *********** Click logout ************
 11:18:10.305 [main] INFO  - *********** Login Successful ************
 11:18:10.311 [main] INFO  - *********** Closing Browser ************
+12:36:56.891 [main] INFO  - Chrome browser launched successfully
+12:36:56.973 [main] INFO  - *********** opening url ************
+12:36:59.699 [main] INFO  - *********** providing email and password ************
+12:37:00.126 [main] INFO  - *********** Clicking on login button ************
+12:37:06.221 [main] INFO  - *********** Login Successful ************
+12:37:06.243 [main] INFO  - *********** Click logout ************
+12:37:13.204 [main] INFO  - *********** Login Successful ************
+12:37:13.217 [main] INFO  - *********** Closing Browser ************

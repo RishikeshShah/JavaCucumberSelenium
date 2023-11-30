@@ -20,19 +20,24 @@ public class Steps extends BaseClass {
     public void setup() throws IOException {
         logger = LogManager.getLogger(BaseClass.class); // initializing logger to call different log levels
         // Launch browser
-        if (ReadPropertiesValue.getBrowser().equals("Chrome")) {
+        String browser ="Chrome";
+        //if (ReadPropertiesValue.getBrowser().equals("Chrome")) {
+        if (browser.equals("Chrome")) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
             driver.manage().window().maximize();
             logger.info("Chrome browser launched successfully");
 
-        } else if (ReadPropertiesValue.getBrowser().equals("Firefox")) {
+        } //else if (ReadPropertiesValue.getBrowser().equals("Firefox")) {
+
+        else if (browser.equals("Firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
             driver.manage().window().maximize();
             logger.info("Firefox browser launched successfully");
 
-        } else if (ReadPropertiesValue.getBrowser().equals("Edge")) {
+        } //else if (ReadPropertiesValue.getBrowser().equals("Edge")) {
+        else if (browser.equals("Edge")) {
             WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
             driver.manage().window().maximize();
