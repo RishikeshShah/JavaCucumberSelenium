@@ -1,7 +1,7 @@
 Feature: Login
 
 
-  @sanity  # with this tag we can run only this scenario from TestRunner class
+  @system_test  # with this tag we can run only this scenario from TestRunner class
   Scenario: Successful Login with valid credentials
     Given User launch chrome browser
     When User opens URL "https://admin-demo.nopcommerce.com/login"
