@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import pageObject.AddCustomerPage;
@@ -24,7 +25,9 @@ public class Steps extends BaseClass {
         //if (ReadPropertiesValue.getBrowser().equals("Chrome")) {
         if (browser.equals("Chrome")) {
             WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless");
+            driver = new ChromeDriver(options);
             driver.manage().window().maximize();
             logger.info("Chrome browser launched successfully");
 
