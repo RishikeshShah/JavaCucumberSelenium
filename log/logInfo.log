@@ -294,3 +294,27 @@
 12:37:06.243 [main] INFO  - *********** Click logout ************
 12:37:13.204 [main] INFO  - *********** Login Successful ************
 12:37:13.217 [main] INFO  - *********** Closing Browser ************
+13:23:32.028 [main] INFO  - Chrome browser launched successfully
+13:23:32.095 [main] INFO  - *********** opening url ************
+13:23:33.452 [main] INFO  - *********** providing email and password ************
+13:23:33.820 [main] INFO  - *********** Clicking on login button ************
+13:23:39.347 [main] INFO  - *********** Login Successful ************
+13:23:39.355 [main] INFO  - *********** Click logout ************
+13:23:46.314 [main] INFO  - *********** Login Successful ************
+13:23:46.324 [main] INFO  - *********** Closing Browser ************
+10:51:48.291 [main] INFO  - Firefox browser launched successfully
+10:51:48.346 [main] INFO  - *********** opening url ************
+10:51:50.463 [main] INFO  - *********** providing email and password ************
+10:51:50.826 [main] INFO  - *********** Clicking on login button ************
+10:51:58.326 [main] INFO  - *********** Login Successful ************
+10:51:58.332 [main] INFO  - *********** Click logout ************
+10:52:05.393 [main] INFO  - *********** Login Successful ************
+10:52:05.401 [main] INFO  - *********** Closing Browser ************
+10:54:01.858 [main] INFO  - Firefox browser launched successfully
+10:54:01.892 [main] INFO  - *********** opening url ************
+10:54:03.167 [main] INFO  - *********** providing email and password ************
+10:54:03.384 [main] INFO  - *********** Clicking on login button ************
+10:54:09.586 [main] INFO  - *********** Login Successful ************
+10:54:09.596 [main] INFO  - *********** Click logout ************
+10:54:16.670 [main] INFO  - *********** Login Successful ************
+10:54:16.677 [main] INFO  - *********** Closing Browser ************

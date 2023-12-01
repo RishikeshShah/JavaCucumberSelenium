@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import pageObject.AddCustomerPage;
 import pageObject.LoginPage;
 import pageObject.SearchCustomerPage;
@@ -21,7 +22,7 @@ public class Steps extends BaseClass {
     public void setup() throws IOException {
         logger = LogManager.getLogger(BaseClass.class); // initializing logger to call different log levels
         // Launch browser
-        String browser ="Chrome";
+        browser ="Firefox";
         //if (ReadPropertiesValue.getBrowser().equals("Chrome")) {
         if (browser.equals("Chrome")) {
             WebDriverManager.chromedriver().setup();
@@ -35,7 +36,9 @@ public class Steps extends BaseClass {
 
         else if (browser.equals("Firefox")) {
             WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
+            FirefoxOptions options = new FirefoxOptions();
+            options.addArguments("--headless");
+            driver = new FirefoxDriver(options);
             driver.manage().window().maximize();
             logger.info("Firefox browser launched successfully");
 

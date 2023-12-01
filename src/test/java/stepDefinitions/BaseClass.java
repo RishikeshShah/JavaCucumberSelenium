@@ -18,6 +18,7 @@ public class BaseClass {
     public SearchCustomerPage pageSearchCust;  // declare SearchCustomerpage object instance
     public Logger logger; // logger variable declaration
     public Properties prop; // declare instance of properties
+    public String browser;
 
 
 
