@@ -22,12 +22,15 @@ public class Steps extends BaseClass {
     public void setup() throws IOException {
         logger = LogManager.getLogger(BaseClass.class); // initializing logger to call different log levels
         // Launch browser
-        browser ="Chrome";
+        browser ="Firefox";
         //if (ReadPropertiesValue.getBrowser().equals("Chrome")) {
         if (browser.equals("Chrome")) {
             WebDriverManager.chromedriver().setup();
+           // System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+           // io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
+          //  io.github.bonigarcia.wdm.WebDriverManager.chromiumdriver().setup();
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless");
+            options.addArguments("--headed");
             driver = new ChromeDriver(options);
             driver.manage().window().maximize();
             logger.info("Chrome browser launched successfully");
