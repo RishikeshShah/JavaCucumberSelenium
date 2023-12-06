@@ -22,7 +22,7 @@ public class Steps extends BaseClass {
     public void setup() throws IOException {
         logger = LogManager.getLogger(BaseClass.class); // initializing logger to call different log levels
         // Launch browser
-        browser ="Firefox";
+        browser ="Chrome";
         //if (ReadPropertiesValue.getBrowser().equals("Chrome")) {
         if (browser.equals("Chrome")) {
             WebDriverManager.chromedriver().setup();
