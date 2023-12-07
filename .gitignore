@@ -11,6 +11,8 @@ target/
 *.iws
 *.iml
 *.ipr
+log/logInfo.log
+test-output/report.html
 
 
 ### Eclipse ###

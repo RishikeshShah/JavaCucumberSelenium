@@ -48,15 +48,16 @@ public class Steps extends BaseClass {
 //            driver = new FirefoxDriver(options);
 //            driver.manage().window().maximize();
 //            logger.info("Firefox browser launched successfully");
-
             FirefoxOptions remoteFirefoxOptions = new FirefoxOptions();
-            remoteFirefoxOptions.setCapability("platform", Platform.ANY);
             remoteFirefoxOptions.setCapability("acceptInsecureCerts", true);
             try {
+                remoteFirefoxOptions.addArguments("--headed");
                 driverPool.set(new RemoteWebDriver(new URL("http://10.118.21.131:4444/wd/hub"), remoteFirefoxOptions));
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
+
+
 
         } //else if (ReadPropertiesValue.getBrowser().equals("Edge")) {
         else if (browser.equals("Edge")) {
@@ -70,18 +71,18 @@ public class Steps extends BaseClass {
     }
     @Given("User launch chrome browser")
     public void user_launch_chrome_browser() {
-        pageLogin =new LoginPage(driver); // passing the driver in LoginPage constructor to launch Chrome browser
+        pageLogin =new LoginPage(driverPool.get()); // passing the driver in LoginPage constructor to launch Chrome browser
     }
     @When("User opens URL {string}")
     public void user_opens_url(String url) {
-//        logger.info("*********** opening url ************");
-//        driver.get(url); // this url as comes direct from feature file
+        //logger.info("*********** opening url ************");
+        //driver.get(url); // this url as comes direct from feature file
         driverPool.get().navigate().to(url);
 
     }
     @When("User enters Email as {string} and Password as {string}") //username and password as parameter
     public void user_enters_email_as_and_password_as(String user_name, String password) {
-        logger.info("*********** providing email and password ************");
+        //logger.info("*********** providing email and password ************");
         pageLogin.setUserName(user_name); // user_name=admin@yourstore.com is comming from feature file
         pageLogin.setPassword(password); // password=admin@yourstore.com is comming from feature file
     }
@@ -221,8 +222,8 @@ public class Steps extends BaseClass {
     }
     @And("close browser")
     public void closeBrowser() {
-        //logger.info("*********** Closing Browser ************");
-        //driver.close();
+//        logger.info("*********** Closing Browser ************");
+//        driver.close();
         driverPool.get().quit();
     }
 }
