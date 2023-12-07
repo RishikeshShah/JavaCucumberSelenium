@@ -127,3 +127,20 @@
 09:52:03.030 [main] INFO  - *********** Click logout ************
 09:52:09.938 [main] INFO  - *********** Login Successful ************
 09:52:09.942 [main] INFO  - *********** Closing Browser ************
+11:07:32.572 [main] INFO  - Chrome browser launched successfully
+11:07:32.587 [main] INFO  - *********** opening url ************
+11:07:34.103 [main] INFO  - *********** providing email and password ************
+11:07:34.298 [main] INFO  - *********** Clicking on login button ************
+11:07:40.504 [main] INFO  - *********** Login Successful ************
+11:07:40.517 [main] INFO  - *********** Click logout ************
+11:07:47.423 [main] INFO  - *********** Login Successful ************
+11:07:47.428 [main] INFO  - *********** Closing Browser ************
+11:15:25.558 [main] INFO  - *********** opening url ************
+11:17:23.745 [main] INFO  - Firefox browser launched successfully
+11:17:23.762 [main] INFO  - *********** opening url ************
+11:17:25.872 [main] INFO  - *********** providing email and password ************
+11:17:25.965 [main] INFO  - *********** Clicking on login button ************
+11:17:32.947 [main] INFO  - *********** Login Successful ************
+11:17:32.952 [main] INFO  - *********** Click logout ************
+11:17:39.866 [main] INFO  - *********** Login Successful ************
+11:17:39.870 [main] INFO  - *********** Closing Browser ************

@@ -5,16 +5,20 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import pageObject.AddCustomerPage;
 import pageObject.LoginPage;
 import pageObject.SearchCustomerPage;
 import utilities.ReadPropertiesValue;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 
 public class Steps extends BaseClass {
@@ -22,7 +26,7 @@ public class Steps extends BaseClass {
     public void setup() throws IOException {
         logger = LogManager.getLogger(BaseClass.class); // initializing logger to call different log levels
         // Launch browser
-        browser ="Chrome";
+        browser ="Firefox";
         //if (ReadPropertiesValue.getBrowser().equals("Chrome")) {
         if (browser.equals("Chrome")) {
             WebDriverManager.chromedriver().setup();
@@ -38,12 +42,21 @@ public class Steps extends BaseClass {
         } //else if (ReadPropertiesValue.getBrowser().equals("Firefox")) {
 
         else if (browser.equals("Firefox")) {
-            WebDriverManager.firefoxdriver().setup();
-            FirefoxOptions options = new FirefoxOptions();
-            options.addArguments("--headless");
-            driver = new FirefoxDriver(options);
-            driver.manage().window().maximize();
-            logger.info("Firefox browser launched successfully");
+//            WebDriverManager.firefoxdriver().setup();
+//            FirefoxOptions options = new FirefoxOptions();
+//            options.addArguments("--headless");
+//            driver = new FirefoxDriver(options);
+//            driver.manage().window().maximize();
+//            logger.info("Firefox browser launched successfully");
+
+            FirefoxOptions remoteFirefoxOptions = new FirefoxOptions();
+            remoteFirefoxOptions.setCapability("platform", Platform.ANY);
+            remoteFirefoxOptions.setCapability("acceptInsecureCerts", true);
+            try {
+                driverPool.set(new RemoteWebDriver(new URL("http://10.118.21.131:4444/wd/hub"), remoteFirefoxOptions));
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
 
         } //else if (ReadPropertiesValue.getBrowser().equals("Edge")) {
         else if (browser.equals("Edge")) {
@@ -61,8 +74,9 @@ public class Steps extends BaseClass {
     }
     @When("User opens URL {string}")
     public void user_opens_url(String url) {
-        logger.info("*********** opening url ************");
-        driver.get(url); // this url as comes direct from feature file
+//        logger.info("*********** opening url ************");
+//        driver.get(url); // this url as comes direct from feature file
+        driverPool.get().navigate().to(url);
 
     }
     @When("User enters Email as {string} and Password as {string}") //username and password as parameter
@@ -207,7 +221,8 @@ public class Steps extends BaseClass {
     }
     @And("close browser")
     public void closeBrowser() {
-        logger.info("*********** Closing Browser ************");
-        driver.close();
+        //logger.info("*********** Closing Browser ************");
+        //driver.close();
+        driverPool.get().quit();
     }
 }
