@@ -13,7 +13,7 @@ target/
 *.ipr
 log/logInfo.log
 test-output/report.html
-src/test/Resources/configFiles/config.properties
+
 
 
 ### Eclipse ###

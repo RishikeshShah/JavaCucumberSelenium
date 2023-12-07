@@ -30,9 +30,7 @@ public class Steps extends BaseClass {
         if (ReadPropertiesValue.getBrowser().equals("Chrome")) {
        // if (browser.equals("Chrome")) {
             WebDriverManager.chromedriver().setup();
-           // System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-           // io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
-          //  io.github.bonigarcia.wdm.WebDriverManager.chromiumdriver().setup();
+
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--headed");
             driver = new ChromeDriver(options);
@@ -41,13 +39,6 @@ public class Steps extends BaseClass {
 
         } else if (ReadPropertiesValue.getBrowser().equals("Firefox")) {
 
-        //else if (browser.equals("Firefox")) {
-//            WebDriverManager.firefoxdriver().setup();
-//            FirefoxOptions options = new FirefoxOptions();
-//            options.addArguments("--headless");
-//            driver = new FirefoxDriver(options);
-//            driver.manage().window().maximize();
-//            logger.info("Firefox browser launched successfully");
             WebDriverManager.firefoxdriver().setup();
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             firefoxOptions.setCapability("acceptInsecureCerts", true); // Ignoriere SSL-Zertifikatsfehler
