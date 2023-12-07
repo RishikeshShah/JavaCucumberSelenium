@@ -48,14 +48,23 @@ public class Steps extends BaseClass {
 //            driver = new FirefoxDriver(options);
 //            driver.manage().window().maximize();
 //            logger.info("Firefox browser launched successfully");
-            FirefoxOptions remoteFirefoxOptions = new FirefoxOptions();
-            remoteFirefoxOptions.setCapability("acceptInsecureCerts", true);
-            try {
-                remoteFirefoxOptions.addArguments("--headed");
-                driverPool.set(new RemoteWebDriver(new URL("http://10.118.21.131:4444/wd/hub"), remoteFirefoxOptions));
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
+            WebDriverManager.firefoxdriver().setup();
+            FirefoxOptions firefoxOptions = new FirefoxOptions();
+            firefoxOptions.setCapability("acceptInsecureCerts", true); // Ignoriere SSL-Zertifikatsfehler
+            driverPool.set(new FirefoxDriver(firefoxOptions));
+
+        }
+
+            else if (browser.equals("remote_firefox")) {
+
+                FirefoxOptions remoteFirefoxOptions = new FirefoxOptions();
+                remoteFirefoxOptions.setCapability("acceptInsecureCerts", true);
+                try {
+
+                    driverPool.set(new RemoteWebDriver(new URL("http://10.118.21.131:4444/wd/hub"), remoteFirefoxOptions));
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
 
 
 
