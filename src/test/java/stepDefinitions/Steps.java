@@ -26,9 +26,9 @@ public class Steps extends BaseClass {
     public void setup() throws IOException {
         logger = LogManager.getLogger(BaseClass.class); // initializing logger to call different log levels
         // Launch browser
-        browser ="Firefox";
-        //if (ReadPropertiesValue.getBrowser().equals("Chrome")) {
-        if (browser.equals("Chrome")) {
+        //browser ="Firefox";
+        if (ReadPropertiesValue.getBrowser().equals("Chrome")) {
+       // if (browser.equals("Chrome")) {
             WebDriverManager.chromedriver().setup();
            // System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
            // io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
@@ -39,9 +39,9 @@ public class Steps extends BaseClass {
             driver.manage().window().maximize();
             logger.info("Chrome browser launched successfully");
 
-        } //else if (ReadPropertiesValue.getBrowser().equals("Firefox")) {
+        } else if (ReadPropertiesValue.getBrowser().equals("Firefox")) {
 
-        else if (browser.equals("Firefox")) {
+        //else if (browser.equals("Firefox")) {
 //            WebDriverManager.firefoxdriver().setup();
 //            FirefoxOptions options = new FirefoxOptions();
 //            options.addArguments("--headless");
@@ -54,8 +54,8 @@ public class Steps extends BaseClass {
             driverPool.set(new FirefoxDriver(firefoxOptions));
 
         }
-
-            else if (browser.equals("remote_firefox")) {
+        else if (ReadPropertiesValue.getBrowser().equals("remote_firefox")) {
+            //else if (browser.equals("remote_firefox")) {
 
                 FirefoxOptions remoteFirefoxOptions = new FirefoxOptions();
                 remoteFirefoxOptions.setCapability("acceptInsecureCerts", true);
@@ -68,8 +68,8 @@ public class Steps extends BaseClass {
 
 
 
-        } //else if (ReadPropertiesValue.getBrowser().equals("Edge")) {
-        else if (browser.equals("Edge")) {
+        } else if (ReadPropertiesValue.getBrowser().equals("Edge")) {
+        //else if (browser.equals("Edge")) {
             WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
             driver.manage().window().maximize();
