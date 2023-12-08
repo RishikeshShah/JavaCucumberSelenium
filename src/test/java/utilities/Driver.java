@@ -82,10 +82,18 @@ public class Driver {
                     break;
                 case "remote_chrome":
                     ChromeOptions remoteChromeOptions = new ChromeOptions();
-                    remoteChromeOptions.setCapability("platform", Platform.ANY);
                     remoteChromeOptions.setCapability("acceptInsecureCerts", true);
                     try {
-                        driverPool.set(new RemoteWebDriver(new URL("http://10.118.21.63:4444/wd/hub"), remoteChromeOptions));
+                        driverPool.set(new RemoteWebDriver(new URL("http://10.118.21.131:4444/wd/hub"), remoteChromeOptions));
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case "remote_firefox":
+                    FirefoxOptions remoteFirefoxOptions = new FirefoxOptions();
+                    remoteFirefoxOptions.setCapability("acceptInsecureCerts", true);
+                    try {
+                        driverPool.set(new RemoteWebDriver(new URL("http://10.118.21.131:4444/wd/hub"), remoteFirefoxOptions));
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     }

@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = ".//src/test/Resources/Features",
         glue = "stepDefinitions", // Name of the package where Stepdefinition class exists
         /*you can run only specific scenario with the tag name as below */
-        //tags = "@system_test",
+        tags = "@system_test",
         plugin = {"pretty", "html:test-output/report.html"} // html report will be in test-output folder generated
 )
 
