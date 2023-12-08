@@ -2,11 +2,14 @@ package pageObject;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import stepDefinitions.BaseClass;
 
-public class LoginPage{
+public class LoginPage extends BaseClass {
     public WebDriver driver;
+
     public LoginPage(WebDriver rdriver){
         driver=rdriver;
         PageFactory.initElements(rdriver,this);

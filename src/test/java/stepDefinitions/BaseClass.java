@@ -3,12 +3,9 @@ package stepDefinitions;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import pageObject.AddCustomerPage;
 import pageObject.LoginPage;
 import pageObject.SearchCustomerPage;
-
-import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 
 
@@ -18,9 +15,6 @@ public class BaseClass {
     public AddCustomerPage pageAddCustomer; // declare AddCustomer object instance
     public SearchCustomerPage pageSearchCust;  // declare SearchCustomerpage object instance
     public Logger logger; // logger variable declaration
-    public Properties prop; // declare instance of properties
-    public String browser;
-    ThreadLocal<RemoteWebDriver> driverPool = new ThreadLocal<>();
 
 
 

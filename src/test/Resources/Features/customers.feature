@@ -1,7 +1,7 @@
 Feature: Customers
   # common steps for login are written in Background so it runs before executing every scenario
   Background:
-    Given User launch chrome browser
+    Given User launch browser
     When User opens URL "https://admin-demo.nopcommerce.com/login"
     And  User enters Email as "admin@yourstore.com" and Password as "admin"
     And Click on Login

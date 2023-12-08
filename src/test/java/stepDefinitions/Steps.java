@@ -1,85 +1,34 @@
 package stepDefinitions;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.logging.log4j.LogManager;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Platform;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import pageObject.AddCustomerPage;
 import pageObject.LoginPage;
 import pageObject.SearchCustomerPage;
-import utilities.ReadPropertiesValue;
+import utilities.Driver;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
+
 
 
 public class Steps extends BaseClass {
     @Before //Before annotation is from io.cucumber.java
     public void setup() throws IOException {
-        logger = LogManager.getLogger(BaseClass.class); // initializing logger to call different log levels
-        // Launch browser
-        browser ="remote_firefox";
-        //if (ReadPropertiesValue.getBrowser().equals("Chrome")) {
-       if (browser.equals("Chrome")) {
-            WebDriverManager.chromedriver().setup();
-
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headed");
-            driver = new ChromeDriver(options);
-            driver.manage().window().maximize();
-            logger.info("Chrome browser launched successfully");
-
-        }
-       //else if (ReadPropertiesValue.getBrowser().equals("Firefox")) {
-        else if (browser.equals("Firefox")){
-
-           WebDriverManager.firefoxdriver().setup();
-            FirefoxOptions firefoxOptions = new FirefoxOptions();
-            firefoxOptions.setCapability("acceptInsecureCerts", true); // Ignoriere SSL-Zertifikatsfehler
-            driverPool.set(new FirefoxDriver(firefoxOptions));
-
-        }
-        //else if (ReadPropertiesValue.getBrowser().equals("remote_firefox")) {
-        else if (browser.equals("remote_firefox")) {
-
-                FirefoxOptions remoteFirefoxOptions = new FirefoxOptions();
-                remoteFirefoxOptions.setCapability("acceptInsecureCerts", true);
-                try {
-
-                    driverPool.set(new RemoteWebDriver(new URL("http://10.118.21.131:4444/wd/hub"), remoteFirefoxOptions));
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
-
-
-
-        } //else if (ReadPropertiesValue.getBrowser().equals("Edge")) {
-        else if (browser.equals("Edge")) {
-            WebDriverManager.edgedriver().setup();
-            driver = new EdgeDriver();
-            driver.manage().window().maximize();
-            logger.info("Edge browser launched successfully");
-        }
-
+           driver = Driver.get();
 
     }
-    @Given("User launch chrome browser")
-    public void user_launch_chrome_browser() {
-        pageLogin =new LoginPage(driverPool.get()); // passing the driver in LoginPage constructor to launch Chrome browser
+    @Given("User launch browser")
+    public void userLaunchBrowser() {
+        pageLogin =new LoginPage(driver); // passing the driver in LoginPage constructor to launch Chrome browser
+        driver.manage().window().maximize();
     }
+
     @When("User opens URL {string}")
     public void user_opens_url(String url) {
         //logger.info("*********** opening url ************");
-        //driver.get(url); // this url as comes direct from feature file
-        driverPool.get().navigate().to(url);
+
+        driver.get(url); // this url as comes direct from feature file
+
 
     }
     @When("User enters Email as {string} and Password as {string}") //username and password as parameter
@@ -90,7 +39,7 @@ public class Steps extends BaseClass {
     }
     @When("Click on Login")
     public void click_on_login() {
-        logger.info("*********** Clicking on login button ************");
+        //logger.info("*********** Clicking on login button ************");
         pageLogin.clickLogin();
     }
     @When("Page title should be {string}")
@@ -98,12 +47,12 @@ public class Steps extends BaseClass {
         Thread.sleep(3000);
         // if user name or password is not correct the login will fail
         if (driver.getPageSource().contains("Login was unsuccessful.")){
-            logger.error("*********** Login failed. Provide correct email and password ************");
+            //logger.error("*********** Login failed. Provide correct email and password ************");
             driver.close();
             Assert.fail();
         }
         else{
-            logger.info("*********** Login Successful ************");
+            //logger.info("*********** Login Successful ************");
             // verifying the title
             Assert.assertEquals(title, driver.getTitle());
         }
@@ -111,7 +60,7 @@ public class Steps extends BaseClass {
 
     @When("User click on Logout link")
     public void user_click_on_logout_link() throws InterruptedException {
-        logger.info("*********** Click logout ************");
+        //logger.info("*********** Click logout ************");
         pageLogin.clickLogout();
      Thread.sleep(3000);
     }
@@ -147,7 +96,7 @@ public class Steps extends BaseClass {
 
     @When("User enter customer info")
     public void userEnterCustomerInfo() throws InterruptedException {
-        logger.info("*********** entering new customer info ************");
+        //logger.info("*********** entering new customer info ************");
         String email = randomString() + "@gmail.com";
         pageAddCustomer.setEmail(email);
         pageAddCustomer.setPassword("test123");
@@ -168,7 +117,7 @@ public class Steps extends BaseClass {
 
     @And("click on Save button")
     public void clickOnSaveButton() {
-        logger.info("*********** Saving customer data ************");
+        //logger.info("*********** Saving customer data ************");
         pageAddCustomer.clickOnSave();
     }
     @Then("User can view confirmation message {string}")
@@ -181,7 +130,7 @@ public class Steps extends BaseClass {
     /* Search customer by EmailID steps implementation*/
     @When("Enter customer EMail")
     public void enterCustomerEMail() {
-        logger.info("*********** Searching Customer by Email ************");
+        //logger.info("*********** Searching Customer by Email ************");
         pageSearchCust = new SearchCustomerPage(driver);
         pageSearchCust.setEmail("victoria_victoria@nopCommerce.com");
     }
@@ -204,7 +153,7 @@ public class Steps extends BaseClass {
     @When("Enter customer FirstName")
     public void enterCustomerFirstName() throws InterruptedException {
 
-        logger.info("*********** Searching customer by name ************");
+        //logger.info("*********** Searching customer by name ************");
         pageSearchCust = new SearchCustomerPage(driver);
         pageSearchCust.setFirstName("Victoria");
     }
@@ -224,8 +173,8 @@ public class Steps extends BaseClass {
     }
     @And("close browser")
     public void closeBrowser() {
-//        logger.info("*********** Closing Browser ************");
-//        driver.close();
-        driverPool.get().quit();
+          Driver.closeDriver();
     }
+
+
 }
