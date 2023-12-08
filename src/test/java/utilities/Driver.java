@@ -9,11 +9,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.safari.SafariDriver;
-import org.openqa.selenium.safari.SafariOptions;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -73,17 +69,6 @@ public class Driver {
                         e.printStackTrace();
                     }
                     break;
-
-                case "edge":
-                    if (!System.getProperty("os.name").toLowerCase().contains("windows"))
-                        throw new WebDriverException("Your OS doesn't support Edge");
-                    WebDriverManager.edgedriver().setup();
-                    EdgeOptions edgeOptions = new EdgeOptions();
-                    edgeOptions.setCapability("acceptInsecureCerts", true); // Ignoriere SSL-Zertifikatsfehler
-                    driverPool.set(new EdgeDriver(edgeOptions));
-                    break;
-
-
 
             }
         }
