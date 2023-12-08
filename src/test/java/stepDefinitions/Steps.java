@@ -152,15 +152,12 @@ public class Steps extends BaseClass {
    /* Find customer by first and last name*/
     @When("Enter customer FirstName")
     public void enterCustomerFirstName() throws InterruptedException {
-
-        //logger.info("*********** Searching customer by name ************");
         pageSearchCust = new SearchCustomerPage(driver);
         pageSearchCust.setFirstName("Victoria");
     }
 
     @And("Enter customer LastName")
     public void enterCustomerLastName() {
-
         pageSearchCust.setLastName("Terces");
     }
 
@@ -175,6 +172,5 @@ public class Steps extends BaseClass {
     public void closeBrowser() {
           Driver.closeDriver();
     }
-
 
 }
