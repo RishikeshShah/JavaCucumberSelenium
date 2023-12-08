@@ -145,7 +145,7 @@ public class Steps extends BaseClass {
     public void userShouldFindEmailInTheSearchResultTable() throws InterruptedException {
         boolean status = pageSearchCust.searchCustomerByEmail("victoria_victoria@nopCommerce.com");
         Assert.assertTrue(status);
-        Thread.sleep(3000);
+        Thread.sleep(4000);
 
     }
 
