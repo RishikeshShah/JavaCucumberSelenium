@@ -1,7 +1,6 @@
 package utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -43,6 +42,15 @@ public class Driver {
                     headlessChromeOptions.setCapability("acceptInsecureCerts", true); // Ignoriere SSL-Zertifikatsfehler
                     driverPool.set(new ChromeDriver(headlessChromeOptions));
                     break;
+                case "remote_chrome":
+                    ChromeOptions remoteChromeOptions = new ChromeOptions();
+                    remoteChromeOptions.setCapability("acceptInsecureCerts", true);
+                    try {
+                        driverPool.set(new RemoteWebDriver(new URL("http://10.118.21.131:4444/wd/hub"), remoteChromeOptions));
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+                    break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
@@ -56,39 +64,6 @@ public class Driver {
                     headlessFirefoxOptions.setCapability("acceptInsecureCerts", true); // Ignoriere SSL-Zertifikatsfehler
                     driverPool.set(new FirefoxDriver(headlessFirefoxOptions));
                     break;
-                case "ie":
-                    if (!System.getProperty("os.name").toLowerCase().contains("windows"))
-                        throw new WebDriverException("Your OS doesn't support Internet Explorer");
-                    WebDriverManager.iedriver().setup();
-                    InternetExplorerOptions ieOptions = new InternetExplorerOptions();
-                    ieOptions.setCapability("acceptInsecureCerts", true); // Ignoriere SSL-Zertifikatsfehler
-                    driverPool.set(new InternetExplorerDriver(ieOptions));
-                    break;
-                case "edge":
-                    if (!System.getProperty("os.name").toLowerCase().contains("windows"))
-                        throw new WebDriverException("Your OS doesn't support Edge");
-                    WebDriverManager.edgedriver().setup();
-                    EdgeOptions edgeOptions = new EdgeOptions();
-                    edgeOptions.setCapability("acceptInsecureCerts", true); // Ignoriere SSL-Zertifikatsfehler
-                    driverPool.set(new EdgeDriver(edgeOptions));
-                    break;
-                case "safari":
-                    if (!System.getProperty("os.name").toLowerCase().contains("mac"))
-                        throw new WebDriverException("Your OS doesn't support Safari");
-                    WebDriverManager.getInstance(SafariDriver.class).setup();
-                    SafariOptions safariOptions = new SafariOptions();
-                    safariOptions.setCapability("acceptInsecureCerts", true); // Ignoriere SSL-Zertifikatsfehler
-                    driverPool.set(new SafariDriver(safariOptions));
-                    break;
-                case "remote_chrome":
-                    ChromeOptions remoteChromeOptions = new ChromeOptions();
-                    remoteChromeOptions.setCapability("acceptInsecureCerts", true);
-                    try {
-                        driverPool.set(new RemoteWebDriver(new URL("http://10.118.21.131:4444/wd/hub"), remoteChromeOptions));
-                    } catch (MalformedURLException e) {
-                        e.printStackTrace();
-                    }
-                    break;
                 case "remote_firefox":
                     FirefoxOptions remoteFirefoxOptions = new FirefoxOptions();
                     remoteFirefoxOptions.setCapability("acceptInsecureCerts", true);
@@ -98,6 +73,18 @@ public class Driver {
                         e.printStackTrace();
                     }
                     break;
+
+                case "edge":
+                    if (!System.getProperty("os.name").toLowerCase().contains("windows"))
+                        throw new WebDriverException("Your OS doesn't support Edge");
+                    WebDriverManager.edgedriver().setup();
+                    EdgeOptions edgeOptions = new EdgeOptions();
+                    edgeOptions.setCapability("acceptInsecureCerts", true); // Ignoriere SSL-Zertifikatsfehler
+                    driverPool.set(new EdgeDriver(edgeOptions));
+                    break;
+
+
+
             }
         }
         return driverPool.get();
