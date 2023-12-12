@@ -97,11 +97,6 @@ public class SearchCustomerPage{
             String name = table.findElement(By.xpath("//table[@id='customers-grid']/tbody/tr[" + i + "]/td[3]"))
                     .getText();
 
-//            String names[]=name.split(" "); // separating first and last name
-//            if (names[0].equals("Victoria") && names[1].equals("Terces")) {
-//                flag = true;
-//                break;
-//            }
             if (Name.equals(name)) {
                 flag = true;
                 break;

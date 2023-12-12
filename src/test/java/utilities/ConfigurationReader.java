@@ -2,7 +2,6 @@ package utilities;
 
 import java.io.FileInputStream;
 import java.util.Properties;
-
 public class ConfigurationReader {
     private static Properties properties;
     static {
@@ -16,7 +15,6 @@ public class ConfigurationReader {
             e.printStackTrace();
         }
     }
-
     public static String get(String keyName) {
         return properties.getProperty(keyName);
     }
